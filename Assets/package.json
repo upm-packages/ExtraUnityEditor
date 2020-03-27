@@ -1,0 +1,20 @@
+{
+  "name": "dev.upm-packages.extraunityeditor",
+  "displayName": "ExtraUnityEditor",
+  "version": "0.0.1",
+  "unity": "2019.2",
+  "description": "Extra classes/methods for UnityEditor namespace",
+  "author": {
+    "name": "Tetsuya Mori",
+    "url": "https://me.monry.dev/",
+    "email": "monry84@gmail.com"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "category": "",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/upm-packages/ExtraUnityEditor"
+  }
+}
