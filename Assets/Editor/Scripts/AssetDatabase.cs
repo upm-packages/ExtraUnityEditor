@@ -37,6 +37,49 @@ namespace ExtraUnityEditor
                     .Select(UnityEditor.AssetDatabase.LoadAssetAtPath<T>);
         }
 
+        public static void CreateOrOverwriteAsset(Object asset, string path)
+        {
+            if (path == null)
+            {
+                throw new ArgumentNullException(nameof(path));
+            }
+
+            if (!File.Exists(path))
+            {
+                UnityEditor.AssetDatabase.CreateAsset(asset, path);
+                return;
+            }
+
+            var tmpFilePath = UnityEditor.FileUtil.GetUniqueTempPathInProject();
+            UnityEditor.AssetDatabase.CreateAsset(asset, tmpFilePath);
+            UnityEditor.FileUtil.ReplaceFile(tmpFilePath, path);
+            UnityEditor.AssetDatabase.ImportAsset(path);
+        }
+
+        public static bool CopyOrOverwriteAsset(string path, string newPath)
+        {
+            if (newPath == null)
+            {
+                throw new ArgumentNullException(nameof(newPath));
+            }
+
+            if (!File.Exists(newPath))
+            {
+                return UnityEditor.AssetDatabase.CopyAsset(path, newPath);
+            }
+
+            var tmpFilePath = UnityEditor.FileUtil.GetUniqueTempPathInProject();
+            if (!UnityEditor.AssetDatabase.CopyAsset(path, tmpFilePath))
+            {
+                return false;
+            }
+
+            UnityEditor.FileUtil.ReplaceFile(tmpFilePath, newPath);
+            UnityEditor.AssetDatabase.ImportAsset(newPath);
+
+            return true;
+        }
+
         public static void CreateFolderRecursive(string path)
         {
             var parentFolder = string.Empty;
