@@ -1,6 +1,6 @@
 ![](https://github.com/upm-packages/ExtraUnityEditor/workflows/Publish%20UPM%20Package/badge.svg)
 
-# ExtraUnityEditor
+# Extra UnityEditor
 
 ## Installation
 
