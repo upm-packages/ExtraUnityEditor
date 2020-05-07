@@ -1,7 +1,7 @@
 {
   "name": "dev.upm-packages.extraunityeditor",
   "displayName": "Extra UnityEditor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "unity": "2019.2",
   "description": "Extra classes/methods for UnityEditor namespace",
   "author": {
